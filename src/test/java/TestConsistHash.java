@@ -1,7 +1,9 @@
-import com.mxf.hash.ConsistantHash;
-import com.mxf.hash.Node;
 
-import java.util.*;
+import com.meixianfeng.hash.ConsistantHash;
+import com.meixianfeng.hash.Node;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.

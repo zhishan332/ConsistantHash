@@ -1,5 +1,6 @@
-import com.mxf.hash.ConsistantHash;
-import com.mxf.hash.Node;
+
+import com.meixianfeng.hash.ConsistantHash;
+import com.meixianfeng.hash.Node;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
