@@ -38,9 +38,10 @@ public class TestConsistHashWithComp {
 
         long start = System.currentTimeMillis();
 
+        Thread [] threads= new Thread[100];
         for (int i = 0; i < 100; i++) {
             final String name = "thread" + i;
-            Thread t = new Thread(new Runnable() {
+            threads[i] = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     for (int h = 0; h < 100000; h++) {
@@ -50,10 +51,12 @@ public class TestConsistHashWithComp {
                     testConsistHashWithComp.print();
                 }
             }, name);
-            t.start();
+            threads[i].start();
         }
         System.out.println(System.currentTimeMillis() - start);
-        Thread.sleep(1000 * 20);
+        for(Thread t: threads)
+            t.join();
+//        Thread.sleep(1000 * 20);
         testConsistHashWithComp.print();
     }
 
