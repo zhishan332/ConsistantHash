@@ -60,12 +60,14 @@ public class TestConsistHashWithComp {
         testConsistHashWithComp.print();
     }
 
-    public synchronized void send(Node node) {
-        Long count = stat.get(node.getIp());
-        if (count == null) {
-            stat.put(node.getIp(), 1L);
-        } else {
-            stat.put(node.getIp(), count + 1);
+    public void send(Node node) {
+        synchronized(node) {
+            Long count = stat.get(node.getIp());
+            if (count == null) {
+                stat.put(node.getIp(), 1L);
+            } else {
+                stat.put(node.getIp(), count + 1);
+            }
         }
     }
 
